@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      async function f(){
+        return 1;
+      }
+      //f().then(alert);
+
+      async function f2() {
+        let promise = new Promise(function(resolve, reject) {
+          setTimeout(()=> resolve("done"),1000)
+        });
+
+        let result = await promise;
+
+        alert(result);
+      }
+
+      f2()
+    </script>
+  </body>
+</html>
