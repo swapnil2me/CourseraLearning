@@ -1,0 +1,26 @@
+~$ sudo apt-get install wget ca-certificates
+~$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+~$ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/~$ sources.list.d/pgdg.list'
+~$ sudo apt update
+~$ sudo apt-get install postgresql postgresql-contrib
+~$ sudo -u postgres psql
+postgres=# create role swapnil with login createdb;
+postgres=# \q
+~$ createdb swapnil
+~$ psql
+
+swapnil=> CREATE TABLE flights(
+swapnil(>   id SERIAL PRIMARY KEY,
+swapnil(>   origin VARCHAR NOT NULL,
+swapnil(>   destination VARCHAR NOT NULL,
+swapnil(>   duration INTEGER NOT NULL
+swapnil(> );
+
+swapnil=> INSERT INTO flights (origin, destination, duration) VALUES ('Bangalore','Pune',90);
+swapnil=> INSERT INTO flights (origin, destination, duration) VALUES ('Pune','Mumbai',15);
+swapnil=> INSERT INTO flights (origin, destination, duration) VALUES ('Mumbai','Bangalore',105);
+swapnil=> INSERT INTO flights (origin, destination, duration) VALUES ('Pune','Bangalore',90);
+swapnil=> INSERT INTO flights (origin, destination, duration) VALUES ('Mumbai','Pune',15);
+swapnil=> INSERT INTO flights (origin, destination, duration) VALUES ('Bangalore','Mumbai',105);
+swapnil=> \q
+
